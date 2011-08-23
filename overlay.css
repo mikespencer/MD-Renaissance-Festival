@@ -1,0 +1,24 @@
+﻿#ad_overlay {
+	position:absolute;
+	z-index:2147483646;
+	top:0;
+	left:0;
+}
+
+#ad_overlay_bg {
+	position:absolute;
+	z-index:2147483645;
+	top:0;
+	left:0;
+	background-color:#000;
+	width:100%;
+	display:none;
+}
+
+#ad_overlay_close {
+	position:absolute;
+	z-index:2147483647;
+	top:0;
+	display:none;
+	cursor:pointer;
+}
