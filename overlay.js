@@ -46,6 +46,7 @@ wpAd.overlay.exec = function(){
 	$('body').prepend('<div id="overlay_wrapper"><div id="ad_overlay"></div><div id="ad_overlay_bg" style="display:none;"></div><div id="ad_overlay_close"><img src="http://media.washingtonpost.com/wp-adv/advertisers/mdrenfest/2011/close.png" height="32" width="70" style="border:0;" alt="Close" /></div></div>');
 	
 	var $window = $(window),
+			$close = $('#ad_overlay_close'),
 			w = $window.width(),
 			h = $window.height(),
 			swf = 'http://media.washingtonpost.com/wp-adv/advertisers/mdrenfest/2011/overlay.swf?clickTag='+wpAd.overlay.ct,
@@ -81,11 +82,10 @@ wpAd.overlay.exec = function(){
 			<!-\-[if !IE]>-\->\
 			</object>\
 			<!-\-<![endif]-\->\
-		</object>',
-		$close = $('#ad_overlay_close');
-	
+		</object>';
+
 	if(!wpAd.overlay.firstPlay ){
-		$('#ad_overlay_close, #ad_overlay_bg, #ad_overlay').css({top:$(window).scrollTop()+'px'})
+		$('#ad_overlay_close, #ad_overlay_bg, #ad_overlay').css({top:$window.scrollTop()+'px'})
 	}
 
 	$('#ad_overlay_bg').css({opacity:wpAd.overlay.bg_opacity, height: $window.height() + 'px'}).fadeIn(wpAd.overlay.fade_speed, function(){
@@ -95,20 +95,26 @@ wpAd.overlay.exec = function(){
 	});
 }
 
-if(typeof jQuery !== 'undefined'){
-	$(function(){
-		//if(typeof getCookie !== 'undefined' && !getCookie('mdrenfest')){
+wpAd.overlay.init = function(){
+	if(typeof jQuery !== 'undefined'){
+		$(function(){
+			/*if(typeof getCookie === 'function' && !getCookie('mdrenfest')){
+				try{
+					var expire = new Date();
+					expire.setDate(expire.getDate()+1);
+					setCookie('mdrenfest','true',expire.toUTCString())
+				} catch(e){}
+				wpAd.overlay.exec();
+			} else{
+				wpAd.overlay.firstPlay = false;	
+				wpAd.overlay.beginAnimation();
+			}*/
 			wpAd.overlay.exec();
-	/*		try{
-				var expire = new Date();
-				expire.setDate(expire.getDate()+1);
-				setCookie('mdrenfest','true',expire.toGMTString())
-			}
-			catch(e){}
-		}
-		else{
-			wpAd.overlay.firstPlay = false;	
-			wpAd.overlay.beginAnimation();
-		}*/
-	})
+		})
+	}
+	else{
+		setTimeout(wpAd.overlay.init,500);
+	}
 }
+
+wpAd.overlay.init();
