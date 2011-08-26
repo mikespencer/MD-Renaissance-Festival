@@ -17,12 +17,17 @@ wpAd.overlay.thisMovie = function(movieName){
 }
 
 wpAd.overlay.beginAnimation = function(){
-	wpAd.overlay.thisMovie('MDRF2011_HPoverlay').beginAnimation();
-	wpAd.overlay.thisMovie('MDRF2011_LBoverlay').beginAnimation();
+	try{
+		wpAd.overlay.thisMovie('MDRF2011_HPoverlay').beginAnimation();
+		wpAd.overlay.thisMovie('MDRF2011_LBoverlay').beginAnimation();
+	}
+	catch(e){
+		setTimeout(wpAd.overlay.beginAnimation, 750);
+	}
 }
 
 wpAd.overlay.replay = function(){
-	wpAd.overlay.remove(); // make it impossible for there to be 2 overlays present at once
+	wpAd.overlay.remove(); // need to make it impossible for there to be 2 overlays present at once
 	wpAd.overlay.thisMovie('MDRF2011_HPoverlay').resetAnimation();
 	wpAd.overlay.thisMovie('MDRF2011_LBoverlay').resetAnimation();
 	wpAd.overlay.exec();
@@ -92,21 +97,18 @@ wpAd.overlay.exec = function(){
 wpAd.overlay.init = function(){
 	if(typeof jQuery !== 'undefined'){
 		$(function(){
-			/*if(typeof getCookie === 'function' && !getCookie('mdrenfest')){
+			if(typeof getCookie === 'function' && typeof commercialNode !== 'undefined' && getCookie('mdrenfest_'+commercialNode) !== commercialNode){
 				try{
 					var exp = new Date();
-					exp.setDate(e.getDate()+1);
-					setCookie('mdrenfest','true',exp.toUTCString())
+					exp.setDate(exp.getDate()+1);
+					setCookie('mdrenfest_'+commercialNode,commercialNode,exp.toUTCString())
 				} catch(e){}
 				wpAd.overlay.exec();
 			} else{
-				//wpAd.overlay.firstPlay = false;	
 				wpAd.overlay.beginAnimation();
-			}*/
-			wpAd.overlay.exec();
+			}
 		})
-	}
-	else{
+	}	else{
 		setTimeout(wpAd.overlay.init,500);
 	}
 }
