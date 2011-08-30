@@ -1,0 +1,8 @@
+<script type="text/javascript">
+	var wpAd = wpAd || {};
+	wpAd.overlay = wpAd.overlay || {};
+	wpAd.overlay.ct = '%c%u';
+</script>
+<script type="text/javascript" src="http://media.washingtonpost.com/wp-adv/advertisers/mdrenfest/2011/overlay.js" async="true"></script>
+<link rel="stylesheet" href="http://media.washingtonpost.com/wp-adv/advertisers/mdrenfest/2011/overlay.css" type="text/css" />
+<img src="%i" height="1" width="1" alt="" style="display:none;border:0;" />

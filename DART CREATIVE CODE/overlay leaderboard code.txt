@@ -1,0 +1,8 @@
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="728" height="90" id="MDRF2011_LBoverlay" align="middle" style="outline:none;z-index:0;position:relative;">
+	<param name="allowScriptAccess" value="always" />
+	<param name="allowFullScreen" value="false" />
+	<param name="wmode" value="transparent" />	
+	<param name="flashvars" value="clickTag=%c%u" />
+	<param name="movie" value="http://media.washingtonpost.com/wp-adv/advertisers/mdrenfest/2011/MDRF2011_LBoverlay.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />	<embed src="http://media.washingtonpost.com/wp-adv/advertisers/mdrenfest/2011/MDRF2011_LBoverlay.swf?clickTag=%c%u" quality="high" bgcolor="#ffffff" width="728" height="90" name="MDRF2011_LBoverlay" align="middle" allowScriptAccess="always" wmode="transparent" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+	<noembed><a href="%c%u" target=_blank"><img src="http://media.washingtonpost.com/wp-adv/advertisers/mdrenfest/2011/MDRF2011_LBoverlay.png" width="728" height="90" alt="" style="border:0;" /></a></noembed>
+	</object>
